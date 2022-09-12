@@ -1,6 +1,6 @@
 ---
 title: "Lab 1 - Data visualization"
-author: "[INSERT NAME]"
+author: "Abel Abadi"
 format: pdf
 editor: visual
 ---
@@ -12,27 +12,40 @@ editor: visual
 #| message: false
 
 library(tidyverse)
+library(viridis)
 ```
 
 ## Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r ex-1}
+ggplot(midwest) +
+  aes(x = popdensity) +
+  geom_histogram(binwidth = 10000) +
+  labs(title = "Population Densities of Midwest Counties", x = "population density", y = "count")
+
+```
+
+The shape of the distribution is right-scewed. There are some outliers that have a higher population density than the other counties. Most of the counties have a population density between 0 and 25,000 but there a couple of counties in the 60,000 and 80,000 range.
 
 ## Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r ex-2}
+ggplot(midwest, aes(x = percbelowpoverty, y = percollege, color = state)) +
+  scale_color_viridis_d() +
+  geom_point() +
+  facet_wrap(~state) +
+  labs(title = "Percentage of people with college degrees vs below poverty",
+       x = "Percentage below poverty",
+       y = "Percentage of people with college degrees")
+
+```
 
 ## Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
-
 ## Exercise 4
-
 
 ## Exercise 5
 
-
 ## Exercise 6
-
 
 ## Exercise 7
