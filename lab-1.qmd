@@ -42,7 +42,22 @@ ggplot(midwest, aes(x = percbelowpoverty, y = percollege, color = state)) +
 
 ## Exercise 3
 
+There seems to be no correlation between the percentage of people with college degrees and the percentage of people below poverty. However, the plots of the different states are nearly identical. Across all states, the percentage of people below poverty in most counties is 5%-20% and the percentage of people with college degrees is 10%-30%. One difference is that Michigan, Illinois and Ohio have some counties with the percentage of poverty being between 20%-25% as well. There are also different outliers for the different states.
+
 ## Exercise 4
+
+```{r ex-4}
+ggplot(midwest) +
+  aes(x = percollege, y = percbelowpoverty, color = state) +
+    scale_color_viridis_d() +
+    geom_smooth(se = FALSE) +
+    facet_wrap(~state) +  
+  labs(title = "Percentage of people with college degrees vs below poverty",
+       x = "Percentage below poverty",
+       y = "Percentage of people with college degrees")
+```
+
+I prefer the plot in Ex. 2 because this plot does not take into account how common certain population densities are in the different midwest states and also does not consider any outliers in the data.
 
 ## Exercise 5
 
