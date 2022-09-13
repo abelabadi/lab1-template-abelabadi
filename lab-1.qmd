@@ -21,7 +21,8 @@ library(viridis)
 ggplot(midwest) +
   aes(x = popdensity) +
   geom_histogram(binwidth = 10000) +
-  labs(title = "Population Densities of Midwest Counties", x = "population density", y = "count")
+  labs(title = "Population Densities of Midwest Counties", x = "population
+       density", y = "count")
 
 ```
 
