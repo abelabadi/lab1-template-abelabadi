@@ -61,7 +61,7 @@ I prefer the plot in Ex. 2 because this plot does not take into account how comm
 
 ## Exercise 5
 
-```{r}
+```{r ex-5}
 ggplot(midwest) + 
   aes(x = state, y = area, color = state) +
   scale_color_viridis_d() +
@@ -75,7 +75,7 @@ From the plot, you can see the average county sizes of the different states and 
 
 ## Exercise 6
 
-```{r}
+```{r ex-6}
  midwest <- midwest |>
     mutate(metro = if_else(inmetro == 1, "Yes", "No"))
   ggplot(data = midwest) + 
@@ -90,3 +90,14 @@ From the plot, you can see the average county sizes of the different states and 
 One thing that can be noticed is that the majority of the counties in each of the states are not in metropolitan areas. However, some states have higher percentages of counties in metropolitan areas with OH having the highest percentage and WI having the lowest percentage.
 
 ## Exercise 7
+
+```{r ex-7}
+ggplot(data = midwest) + 
+  aes(x = percollege, y = popdensity, color = percbelowpoverty) +
+  geom_point(size = 2, alpha = 0.5) +
+  facet_wrap(~state) +
+  labs(title = "Do people with college degrees tend to live in denser area?",
+       x = "% college educated",
+       y = "Population density (person/unit area)",
+       color = " % below\npovertyline")
+```
