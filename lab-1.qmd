@@ -61,6 +61,32 @@ I prefer the plot in Ex. 2 because this plot does not take into account how comm
 
 ## Exercise 5
 
+```{r}
+ggplot(midwest) + 
+  aes(x = state, y = area, color = state) +
+  scale_color_viridis_d() +
+  geom_boxplot() +
+  labs(title = "Areas of the Counties in the Midwest States",
+         x = "State",
+         y = "Area of Counties")
+```
+
+From the plot, you can see the average county sizes of the different states and the distribution of the areas of counties in these states. The average areas of the counties in IL, IN, MI, OH and WI are roughly 0.03, 0.02, 0.04, 0.02 and 0.05 respectively. The state with the largest county is MI because it has the point that is farthest up on the plot.
+
 ## Exercise 6
+
+```{r}
+ midwest <- midwest |>
+    mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+  ggplot(data = midwest) + 
+  aes(x = state, fill = metro) +
+  scale_color_viridis_d() +
+  geom_bar() +
+  labs(title = "Percent of Counties in Metropolitan areas in Midwest States",
+         x = "State",
+         y = "Percent of Counties in Metropolitan Areas")
+```
+
+One thing that can be noticed is that the majority of the counties in each of the states are not in metropolitan areas. However, some states have higher percentages of counties in metropolitan areas with OH having the highest percentage and WI having the lowest percentage.
 
 ## Exercise 7
